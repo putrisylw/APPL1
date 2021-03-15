@@ -7,7 +7,8 @@ package typeEmployee;
 
 /**
  *
- * @author dell
+ * @author Putri Syalwa
+ * 191524054
  */
 //  Represents the personnel staff of a particular business.
 //******************************************************************** 

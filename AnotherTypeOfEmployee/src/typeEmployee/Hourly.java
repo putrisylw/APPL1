@@ -7,7 +7,8 @@ package typeEmployee;
 
 /**
  *
- * @author dell
+ * @author Putri Syalwa
+ * 191524054
  */
 //  Represents an employee that gets paid by the hour.
 //*******************************************************************

@@ -7,7 +7,8 @@ package typeEmployee;
 
 /**
  *
- * @author dell
+ * @author Putri Syalwa
+ * 191524054
  */
 //  Represents a staff member that works as a volunteer.
 //****************************************************************** 
