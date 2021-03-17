@@ -28,7 +28,8 @@ public class Strings{
             for (int i = 0; i < size; i++){
                 strList[i] = scan.next();
             }
-            Sorting.insertionSort(strList) ;
+            Sorting.selectionSort(strList);
+            //Sorting.insertionSort(strList);
             
             System.out.println ("\nYour string in sorted order...");
             for (int i = 0; i < size; i++){
