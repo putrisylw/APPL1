@@ -24,6 +24,7 @@ public class CirclePanel extends JPanel
     private final int CIRCLE_SIZE = 50;
     private int x,y;
     private Color c;
+    JButton chooseColor = new JButton("Choose Color");
     //---------------------------------------------------------------
     // Set up circle and buttons to move it.
     //---------------------------------------------------------------
@@ -62,19 +63,27 @@ public class CirclePanel extends JPanel
         JButton green = new JButton("Green");
         JButton blue = new JButton("Blue");
         // Add listeners to the buttons
-        red.addActionListener(new ColorListener());
-        yellow.addActionListener(new ColorListener());
-        green.addActionListener(new ColorListener());
-        blue.addActionListener(new ColorListener());
+        red.addActionListener(new ColorListener(Color.red));
+        yellow.addActionListener(new ColorListener(Color.yellow));
+        green.addActionListener(new ColorListener(Color.green));
+        blue.addActionListener(new ColorListener(Color.blue));
+        chooseColor.addActionListener(new ColorListener(null));
         // Need a panel to put the buttons on or they'll be on
         // top of each other.
-        JPanel buttonPanelColor = new JPanel();
-        buttonPanel.add(red);
-        buttonPanel.add(yellow);
-        buttonPanel.add(green);
-        buttonPanel.add(blue);
+        JPanel buttonPanel2 = new JPanel();
+        buttonPanel2.add(red);
+        buttonPanel2.add(yellow);
+        buttonPanel2.add(chooseColor);
+        buttonPanel2.add(green);
+        buttonPanel2.add(blue);
         // Add the button panel to the top of the main panel
-        this.add(buttonPanel, "North");
+        this.add(buttonPanel2, "North");
+        
+        // Color background of each button
+        red.setBackground(Color.red);
+        yellow.setBackground(Color.yellow);
+        green.setBackground(Color.green);
+        blue.setBackground(Color.blue);
     }
     //---------------------------------------------------------------
     // Draw circle on CirclePanel
@@ -110,8 +119,30 @@ public class CirclePanel extends JPanel
             repaint();
         }
     }
-    public class ColorListener 
+    private class ColorListener implements ActionListener
     {
-        
+        private Color color;
+        //---------------------------------------------------------------
+        // Parameters tell how to change color circle at click.
+        //---------------------------------------------------------------
+        public ColorListener(Color c)
+        {
+            this.color = c;
+        }
+        //---------------------------------------------------------------
+        // Change color and repaint.
+        //---------------------------------------------------------------
+        public void actionPerformed(ActionEvent e)
+        {
+            if(color != null)
+            {
+                c = color;
+            }
+            else
+            {
+                c = JColorChooser.showDialog(chooseColor, "Select color", c);
+            }
+            repaint();
+        }
     }
 }
