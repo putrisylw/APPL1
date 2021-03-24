@@ -32,10 +32,6 @@ public class ParseInts{
             
             } 
         }
-//        while (scanLine.hasNext()){
-//            val = Integer.parseInt(scanLine.next());
-//            sum += val;
-//        }
         System.out.println("The sum of the integers on this line is " + sum);
     }
 }
