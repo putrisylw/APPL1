@@ -17,17 +17,19 @@ package throwingExceptions;
 //
 // ****************************************************************
 import java.util.Scanner;
-public class Factorials
-{
-    public static void main(String[] args)
-    {
+public class Factorials{
+    public static void main(String[] args){
         String keepGoing = "y";
         Scanner scan = new Scanner(System.in);
-        while (keepGoing.equals("y") || keepGoing.equals("Y"))
-        {
+        while (keepGoing.equals("y") || keepGoing.equals("Y")){
             System.out.print("Enter an integer: ");
             int val = scan.nextInt();
-            System.out.println("Factorial(" + val + ") = " + MathUtils.factorial(val));
+            try{
+                System.out.println("Factorial(" + val + ") = "
+                        + MathUtils.factorial(val));
+            } catch(IllegalArgumentException x){
+                System.out.print(x + "\n");
+            }
             System.out.print("Another factorial? (y/n) ");
             keepGoing = scan.next();
         }
