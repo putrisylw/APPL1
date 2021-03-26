@@ -21,7 +21,7 @@ public class CopyFile {
         boolean found = false;
         Scanner inputScanner = null;
         
-        // Jika file tidak ditemukan (not found) maka akan diminta masukkan file address kemabali
+        // Selama file tidak ditemukan (not found) maka akan diminta masukkan file address kemabali
         do{
             System.out.println("Masukkan File Address : ");
             String fileAddrTobeRead = sc.nextLine();
@@ -37,7 +37,7 @@ public class CopyFile {
             }
         } while (!found);
         
-        // Print isi file
+        // Print semua isi file
         System.out.println("\nIsi File : ");
         do{
             String line = inputScanner.nextLine();
