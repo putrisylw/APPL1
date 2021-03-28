@@ -113,7 +113,7 @@ public class CirclePanel extends JPanel{
             if(x > widthPanel - (CIRCLE_SIZE*1.5)) right.setEnabled(false);
             else right.setEnabled(true);
            
-            if(y < 0) up.setEnabled(false);
+            if(y < 15) up.setEnabled(false);
             else up.setEnabled(true);
             
             if(y > (heightPanel - (CIRCLE_SIZE*3))) down.setEnabled(false);
