@@ -22,12 +22,22 @@ import java.awt.event.*;
 
 public class CirclePanel extends JPanel{
     private final int CIRCLE_SIZE = 50;
-    private int x,y;
+    private int x,y, widthPanel, heightPanel;
     private Color c;
+            
+    // Create buttons to move the circle
+    JButton left = new JButton("Left");
+    JButton right = new JButton("Right");
+    JButton up = new JButton("Up");
+    JButton down = new JButton("Down");
+    
     //---------------------------------------------------------------
     // Set up circle and buttons to move it.
     //---------------------------------------------------------------
     public CirclePanel(int width, int height){
+        widthPanel = width;
+        heightPanel = height;
+        
         // Set coordinates so circle starts in middle
         x = (width/2)-(CIRCLE_SIZE/2);
         y = (height/2)-(CIRCLE_SIZE/2);
@@ -35,12 +45,6 @@ public class CirclePanel extends JPanel{
         
         // Need a border layout to get the buttons on the bottom
         this.setLayout(new BorderLayout());
-        
-        // Create buttons to move the circle
-        JButton left = new JButton("Left");
-        JButton right = new JButton("Right");
-        JButton up = new JButton("Up");
-        JButton down = new JButton("Down");
         
         // Add listeners to the buttons
         left.addActionListener(new MoveListener(-20,0));
@@ -55,6 +59,18 @@ public class CirclePanel extends JPanel{
         buttonPanel.add(right);
         buttonPanel.add(up);
         buttonPanel.add(down);
+        
+        // Set Mnemonic
+        left.setMnemonic(KeyEvent.VK_L);
+        right.setMnemonic(KeyEvent.VK_R);
+        up.setMnemonic(KeyEvent.VK_U);
+        down.setMnemonic(KeyEvent.VK_D);
+        
+        // Set Tooltip
+        left.setToolTipText("Alt+L");
+        right.setToolTipText("Alt+R");
+        up.setToolTipText("Alt+U");
+        down.setToolTipText("Alt+D");
         
         // Add the button panel to the bottom of the main panel
         this.add(buttonPanel, "South");
@@ -90,6 +106,18 @@ public class CirclePanel extends JPanel{
             x += dx;
             y += dy;
             repaint();
+            
+            if(x < 0) left.setEnabled(false);
+            else left.setEnabled(true);
+            
+            if(x > widthPanel - (CIRCLE_SIZE*1.5)) right.setEnabled(false);
+            else right.setEnabled(true);
+           
+            if(y < 0) up.setEnabled(false);
+            else up.setEnabled(true);
+            
+            if(y > (heightPanel - (CIRCLE_SIZE*3))) down.setEnabled(false);
+            else down.setEnabled(true);
         }
     }
 }
