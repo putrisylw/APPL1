@@ -67,10 +67,10 @@ public class CirclePanel extends JPanel{
         down.setMnemonic(KeyEvent.VK_D);
         
         // Set Tooltip
-        left.setToolTipText("Alt+L");
-        right.setToolTipText("Alt+R");
-        up.setToolTipText("Alt+U");
-        down.setToolTipText("Alt+D");
+        left.setToolTipText("Move circle to the left by 20 px (Alt+L)");
+        right.setToolTipText("Move circle to the right by 20 px (Alt+R)");
+        up.setToolTipText("Move circle to the top by 20 px (Alt+U)");
+        down.setToolTipText("Move circle to the bottom by 20 px (Alt+D)");
         
         // Add the button panel to the bottom of the main panel
         this.add(buttonPanel, "South");
